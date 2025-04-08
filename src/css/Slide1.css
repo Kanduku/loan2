@@ -1,0 +1,113 @@
+/* Full-screen white background with animation */
+.slide1-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    background-size: 400% 400%;
+ 
+    padding: 1.5rem;
+    text-align: center;
+  }
+  
+  /* Loader style */
+  .loader-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    scale:2;
+  }
+  
+  .loader {
+    border: 6px solid #eee;
+    border-top: 6px solid #6366f1;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1.1s linear infinite;
+  }
+  
+  .loading-text {
+    margin-top: 1rem;
+    font-weight: 600;
+    color: #4f46e5;
+  }
+  
+  /* Content wrapper (no card) */
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 450px;
+  }
+  
+  /* Title */
+  .form-title {
+    font-size: 1.95rem;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 2rem;
+  }
+  
+  /* Lottie animation */
+  .lottie-container {
+    margin-bottom: 1rem;
+  }
+  
+  /* Input */
+  .input-field {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid #d1d5db;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    transition: 0.3s;
+  }
+  
+  .input-field:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+  }
+  /* Buttons container to align side by side */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    margin-top: 1rem;
+  }
+  
+  .next-button,
+  .refresh-button {
+    width: 48%; /* Make each button roughly half the width with spacing */
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .next-button {
+    background-color: #4f46e5;
+    color: white;
+  }
+  
+  .next-button:hover {
+    background-color: #4338ca;
+  }
+  
+  .refresh-button {
+    background-color: #e5e7eb;
+    color: #374151;
+  }
+  
+  .refresh-button:hover {
+    background-color: #d1d5db;
+  }
+  
