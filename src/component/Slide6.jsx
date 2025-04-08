@@ -6,15 +6,15 @@ const Slide5 = ({ formData, onChange, onNext, onPrev }) => {
     <div className="slide1-wrapper">
       <div className="content-wrapper">
         {/* Title */}
-        <h2 className="form-title">Loan term (₹)</h2>
+        <h2 className="form-title">Loan term </h2>
 
         {/* Lottie Animation */}
         <div className="lottie-container">
           <DotLottieReact
-            src="https://lottie.host/e1be0441-362b-4dec-8e78-9e5b7511e4f2/EVIIfNjJ9l.lottie"
+            src="https://lottie.host/f825d80a-fff8-4c4b-825c-0e51351c5b6a/4KmW3OHDsn.lottie"
             loop
             autoplay
-            style={{ width: 300, height: 300 }}
+            style={{ width: 400, height: 400 }}
           />
         </div>
 

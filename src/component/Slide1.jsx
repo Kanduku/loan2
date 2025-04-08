@@ -7,13 +7,11 @@ const Slide1 = ({ formData, onChange, onNext }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1);
+    const timer = setTimeout(() => setLoading(false), 0);
     return () => clearTimeout(timer);
   }, []);
 
-  const handleRefresh = () => {
-    window.location.reload(); // Reload the page
-  };
+  
 
   return (
     <div className="slide1-wrapper">

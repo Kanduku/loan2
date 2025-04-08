@@ -11,10 +11,10 @@ const Slide8 = ({ formData, onChange, onNext, onPrev }) => {
         {/* Lottie Animation */}
         <div className="lottie-container">
           <DotLottieReact
-            src="https://lottie.host/e1be0441-362b-4dec-8e78-9e5b7511e4f2/EVIIfNjJ9l.lottie"
+            src="https://lottie.host/ab08bbd4-54e0-437e-8f2d-b770e1c040ca/UJYJR1y60h.lottie"
             loop
             autoplay
-            style={{ width: 300, height: 300 }}
+            style={{ width: 450, height: 400 }}
           />
         </div>
 

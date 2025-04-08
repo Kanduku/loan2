@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./../css/slide2.css";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 const Slide12 = ({ formData, onPrev, csvData }) => {
   const [result, setResult] = useState(null);
@@ -34,6 +35,47 @@ const Slide12 = ({ formData, onPrev, csvData }) => {
 
       <h2 className="slide12-title">Review & Submit</h2>
 
+      {result && (
+        <div
+          className={`result-box ${
+            result.prediction
+              ? result.prediction.trim() === "Approved"
+                ? "approved"
+                : "rejected"
+              : "error"
+          }`}
+        >
+      {result.prediction ? (
+  <div className="prediction-container">
+    <DotLottieReact
+      src={
+        result.prediction.trim() === "Approved"
+          ? "https://lottie.host/867be1b4-b378-4f05-b3d6-f51047557d4c/EieDy1xrd6.lottie"
+          : "https://lottie.host/50c86dfe-da4c-4d6d-8554-fd60b1c981df/n0iVN1hDsi.lottie"
+      }
+  
+      autoplay
+    />
+
+    <p
+      className={
+        result.prediction.trim() === "Approved"
+          ? "prediction-approved"
+          : "prediction-rejected"
+      }
+    >
+      {result.prediction}
+    </p>
+  </div>
+) : (
+  <p className="prediction-error">{result.error}</p>
+)}
+
+
+        </div>
+      )}
+
+
       {/* Styled JSON Preview */}
       <div className="form-preview-grid">
         {Object.entries(formData).map(([key, value]) => (
@@ -53,33 +95,7 @@ const Slide12 = ({ formData, onPrev, csvData }) => {
         </button>
       </div>
 
-      {result && (
-        <div
-          className={`result-box ${
-            result.prediction
-              ? result.prediction.trim() === "Approved"
-                ? "approved"
-                : "rejected"
-              : "error"
-          }`}
-        >
-        {result.prediction ? (
-  <p
-    className={
-      result.prediction.trim() === "Approved"
-        ? "prediction-approved"
-        : "prediction-rejected"
-    }
-  >
-    {result.prediction}
-  </p>
-) : (
-  <p className="prediction-error">{result.error}</p>
-)}
-
-        </div>
-      )}
-
+     
 {startResultVisible && csvData && (
   <div className="csv-result-box">
     <h3 className="csv-title">Model Evaluation Metrics:</h3>

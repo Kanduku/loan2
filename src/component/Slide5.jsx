@@ -11,7 +11,7 @@ const Slide5 = ({ formData, onChange, onNext, onPrev }) => {
         {/* Lottie Animation */}
         <div className="lottie-container">
           <DotLottieReact
-            src="https://lottie.host/e1be0441-362b-4dec-8e78-9e5b7511e4f2/EVIIfNjJ9l.lottie"
+            src="https://lottie.host/ba8b7b5b-7ef6-425b-b795-be2b02ba5fc0/vMPC0s4gNr.lottie"
             loop
             autoplay
             style={{ width: 300, height: 300 }}
