@@ -1,12 +1,32 @@
 import React from "react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
-const Slide11 = ({ formData, onChange, onNext, onPrev }) => {
+const Bank_Asset = ({ formData, onChange, onNext, onPrev }) => {
+  const handleFocus = (e) => {
+    if (e.target.value === "0") {
+      e.target.value = "";
+    }
+  };
+
+  const handleBlur = (e) => {
+    if (e.target.value === "") {
+      onChange("bank_asset_value", 0);
+    }
+  };
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    onChange("bank_asset_value", value === "" ? "" : Number(value));
+  };
+
   return (
-    <div className="slide1-wrapper">
+    <div className="slide1-wrapper animated-gradient bubbles">
       <div className="content-wrapper">
         {/* Title */}
         <h2 className="form-title">Bank Asset Value (₹)</h2>
+        <p className="info-text">
+          Please enter the total value of your bank assets (e.g., savings accounts, fixed deposits, etc.). If you don’t have any, you can leave it as ₹0.
+        </p>
 
         {/* Lottie Animation */}
         <div className="lottie-container">
@@ -21,10 +41,15 @@ const Slide11 = ({ formData, onChange, onNext, onPrev }) => {
         {/* Input Field */}
         <input
           type="number"
-          value={formData.bank_asset_value}
-          onChange={(e) => onChange("bank_asset_value", e.target.value)}
+          value={
+            formData.bank_asset_value === "" ? "" : formData.bank_asset_value || 0
+          }
+          onChange={handleChange}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
           className="input-field"
-          placeholder="Enter bank asset value"
+          placeholder="Enter Bank Asset Value "
+          min="0"
         />
 
         {/* Navigation Buttons */}
@@ -41,4 +66,4 @@ const Slide11 = ({ formData, onChange, onNext, onPrev }) => {
   );
 };
 
-export default Slide11;
+export default Bank_Asset;

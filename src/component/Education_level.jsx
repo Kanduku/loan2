@@ -2,12 +2,9 @@ import React from "react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import "./../css/Slide1.css";
 
-const Slide2 = ({ formData, onChange, onNext, onPrev }) => {
+const Education_level = ({ formData, onChange, onNext, onPrev }) => {
   return (
-    <div className="slide1-wrapper relative">
-      {/* Animated Background Elements */}
-      
-
+    <div className="slide1-wrapper relative ">
       {/* Content Box */}
       <div className="content-wrapper z-10 relative">
         {/* Title */}
@@ -23,16 +20,30 @@ const Slide2 = ({ formData, onChange, onNext, onPrev }) => {
           />
         </div>
 
-        {/* Select Field */}
-        <select
-          value={formData.education}
-          onChange={(e) => onChange("education", e.target.value)}
-          className="input-field"
-        >
-          <option value="">Select education level</option>
-          <option value="Graduate">Graduate</option>
-          <option value="Not Graduate">Not Graduate</option>
-        </select>
+        {/* Radio Options */}
+        <div className="radio-group">
+          <label className="radio-option">
+            <input
+              type="radio"
+              name="education"
+              value="Graduate"
+              checked={formData.education === "Graduate"}
+              onChange={(e) => onChange("education", e.target.value)}
+            />
+            Graduate
+          </label>
+
+          <label className="radio-option">
+            <input
+              type="radio"
+              name="education"
+              value="Not Graduate"
+              checked={formData.education === "Not Graduate"}
+              onChange={(e) => onChange("education", e.target.value)}
+            />
+            Not Graduate
+          </label>
+        </div>
 
         {/* Navigation Buttons */}
         <div className="button-group">
@@ -48,4 +59,4 @@ const Slide2 = ({ formData, onChange, onNext, onPrev }) => {
   );
 };
 
-export default Slide2;
+export default Education_level;

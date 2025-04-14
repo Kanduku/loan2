@@ -2,19 +2,25 @@ import React, { useState, useEffect } from "react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { motion } from "framer-motion";
 import "../css/Slide1.css";
+import "../css/Number_of_Dependents.css";
 
-const Slide1 = ({ formData, onChange, onNext }) => {
+
+
+const Number_of_Dependents = ({ formData, onChange, onNext }) => {
   const [loading, setLoading] = useState(true);
+  const [rangeValue, setRangeValue] = useState(formData.no_of_dependents || 0);
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 0);
     return () => clearTimeout(timer);
   }, []);
 
-  
+  useEffect(() => {
+    onChange("no_of_dependents", rangeValue);
+  }, [rangeValue, onChange]);
 
   return (
-    <div className="slide1-wrapper">
+    <div className="slide1-wrapper animated-gradient">
       {loading ? (
         <div className="loader-container">
           <div className="loader"></div>
@@ -38,26 +44,36 @@ const Slide1 = ({ formData, onChange, onNext }) => {
             />
           </div>
 
+         
           <input
-            type="number"
-            value={formData.no_of_dependents}
-            onChange={(e) => onChange("no_of_dependents", e.target.value)}
-            className="input-field"
-            placeholder="Enter number of dependents"
-          />
-<div className="button-group">
-  <button onClick={() => window.location.reload()} className="refresh-button">
-    Refresh
-  </button>
-  <button onClick={onNext} className="next-button">
-    Next
-  </button>
+  type="range"
+  min="0"
+  max="15"
+  value={rangeValue}
+  onChange={(e) => setRangeValue(Number(e.target.value))}
+  className="range-slider"
+/>
+<div className="range-value-display">
+  {rangeValue === 0
+    ? "0"
+    : rangeValue === 15
+    ? "15+"
+    : ` ${rangeValue}`}
 </div>
 
+
+          <div className="button-group">
+            <button onClick={() => window.location.reload()} className="refresh-button">
+              Back
+            </button>
+            <button onClick={onNext} className="next-button">
+              Next
+            </button>
+          </div>
         </motion.div>
       )}
     </div>
   );
 };
 
-export default Slide1;
+export default Number_of_Dependents;

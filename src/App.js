@@ -1,37 +1,40 @@
 import React, { useState } from "react";
-import Slide1 from "./component/Slide1";
-import Slide2 from "./component/Slide2";
-import Slide3 from "./component/Slide3";
-import Slide4 from "./component/Slide4";
-import Slide5 from "./component/Slide5";
-import Slide6 from "./component/Slide6";
-import Slide7 from "./component/Slide7";
-import Slide8 from "./component/Slide8";
-import Slide9 from "./component/Slide9";
-import Slide10 from "./component/Slide10";
-import Slide11 from "./component/Slide11";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Number_of_Dependents from "./component/Number_of_Dependents";
+import Education_level from "./component/Education_level";
+import Self_Employed from "./component/Self_Employed";
+import Annual_Income from "./component/Annual_Income";
+import Loan_Amount from "./component/Loan_Amount";
+import Loan_term from "./component/Loan_term";
+import CIBIL_Score from "./component/CIBIL_Score";
+import Residential_Assets from "./component/Residential_Assets";
+import Commercial_Assets from "./component/Commercial_Assets";
+import Luxury_Assets from "./component/Luxury_Assets";
+import Bank_Asset from "./component/Bank_Asset";
 import Slide12 from "./component/Slide12";
 import Start from "./component/Start";
+import ResultPage from "./component/ResultPage";
+import CsvResultPage from "./component/CsvResultPage";
 
 const slides = [
-  Slide1,
-  Slide2,
-  Slide3,
-  Slide4,
-  Slide5,
-  Slide6,
-  Slide7,
-  Slide8,
-  Slide9,
-  Slide10,
-  Slide11,
+  Number_of_Dependents,
+  Education_level,
+  Self_Employed,
+  Annual_Income,
+  Loan_Amount,
+  Loan_term,
+  CIBIL_Score,
+  Residential_Assets,
+  Commercial_Assets,
+  Luxury_Assets,
+  Bank_Asset,
   Slide12,
 ];
 
 const App = () => {
   const [hasStarted, setHasStarted] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [csvData, setCsvData] = useState(null); // will hold API GET result
+  const [csvData, setCsvData] = useState(null);
   const [formData, setFormData] = useState({
     no_of_dependents: "",
     education: "",
@@ -47,10 +50,7 @@ const App = () => {
   });
 
   const handleChange = (field, value) => {
-    setFormData((prev) => ({
-      ...prev,
-      [field]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   const handleNext = () => {
@@ -64,27 +64,44 @@ const App = () => {
   const CurrentSlideComponent = slides[currentSlide];
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 to-indigo-200">
-      <div className="w-full max-w-md p-4 bg-white rounded-xl shadow-lg">
-        {!hasStarted ? (
-          <Start
-            onStart={() => {
-              setHasStarted(true);
-              setCurrentSlide(0); // Immediately move to Slide1
-            }}
-            setCsvData={setCsvData}
-          />
-        ) : (
-          <CurrentSlideComponent
-            formData={formData}
-            onChange={handleChange}
-            onNext={handleNext}
-            onPrev={handlePrev}
-            csvData={csvData} // Slide12 will use this
-          />
-        )}
+    <Router>
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 to-indigo-200">
+        <div className="w-full max-w-md p-4 bg-white rounded-xl shadow-lg">
+        <Routes>
+  <Route
+    path="/"
+    element={
+      !hasStarted ? (
+        <Start
+          onStart={() => {
+            setHasStarted(true);
+            setCurrentSlide(0);
+          }}
+          setCsvData={setCsvData}
+        />
+      ) : (
+        <CurrentSlideComponent
+          formData={formData}
+          onChange={handleChange}
+          onNext={handleNext}
+          onPrev={handlePrev}
+          csvData={csvData}
+        />
+      )
+    }
+  />
+  <Route
+    path="/result"
+    element={<ResultPage formData={formData} csvData={csvData} />}
+  />
+  <Route
+    path="/csv-result"
+    element={<CsvResultPage csvData={csvData} />}
+  />
+</Routes>
+        </div>
       </div>
-    </div>
+    </Router>
   );
 };
 

@@ -1,12 +1,24 @@
 import React from "react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
-const Slide8 = ({ formData, onChange, onNext, onPrev }) => {
+const Residential_Assets = ({ formData, onChange, onNext, onPrev }) => {
+  const handleChange = (e) => {
+    const value = e.target.value;
+    if (value === "") {
+      onChange("residential_assets_value", ""); // Set it as an empty string if the user cleared the input
+    } else {
+      onChange("residential_assets_value", value); // Otherwise, just update the value
+    }
+  };
+
   return (
-    <div className="slide1-wrapper">
+    <div className="slide1-wrapper animated-gradient">
       <div className="content-wrapper">
         {/* Title */}
         <h2 className="form-title">Residential Assets Value (₹)</h2>
+        <p className="info-text">
+          Please enter the current market value of your owned residential assets (if any). If you don’t own any, you can leave it as ₹0.
+        </p>
 
         {/* Lottie Animation */}
         <div className="lottie-container">
@@ -21,10 +33,11 @@ const Slide8 = ({ formData, onChange, onNext, onPrev }) => {
         {/* Input Field */}
         <input
           type="number"
-          value={formData.residential_assets_value}
-          onChange={(e) => onChange("residential_assets_value", e.target.value)}
+          value={formData.residential_assets_value || ""}
+          onChange={handleChange}
           className="input-field"
-          placeholder="Enter value"
+          placeholder="Enter Residential Assets Value"
+          min="0"
         />
 
         {/* Navigation Buttons */}
@@ -41,4 +54,4 @@ const Slide8 = ({ formData, onChange, onNext, onPrev }) => {
   );
 };
 
-export default Slide8;
+export default Residential_Assets;

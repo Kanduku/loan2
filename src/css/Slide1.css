@@ -110,4 +110,65 @@
   .refresh-button:hover {
     background-color: #d1d5db;
   }
+  .error-message {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
   
+  .animated-gradient {
+    background: linear-gradient(-45deg, #e0e7ff, #f3f4f6, #c7d2fe, #e0f2fe, #d1e6f2, #e0d8f0);
+    background-size: 400% 400%;
+    animation: gradientFlow 18s ease-in-out infinite;
+    transition: background 0.5s ease;
+  }
+  
+  @keyframes gradientFlow {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  
+.radio-group {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1f2937; /* Slate-800 for elegance */
+  background: #ffffffcc;
+  padding: 0.75rem 1.2rem;
+  border-radius: 8px;
+  border: 1px solid #d1d5db; /* soft gray border */
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  cursor: pointer;
+}
+
+.radio-option:hover {
+  background-color: #f0f4ff;
+  border-color: #a5b4fc; /* soft indigo border on hover */
+  color: #1e3a8a;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+}
+
+.radio-option input[type="radio"] {
+  accent-color: #4f46e5; /* soft bank-brand indigo */
+  transform: scale(1.2);
+  cursor: pointer;
+}

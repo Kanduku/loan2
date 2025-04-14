@@ -1,0 +1,120 @@
+/* Container for the entire result page */
+.loan-result-container {
+    padding: 2rem;
+    text-align: center;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+    position: relative;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Title */
+  .loan-result-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 2rem;
+  }
+  
+  /* Loader animation wrapper */
+  .loan-loader-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  
+  /* Prediction box (approved/rejected/error) */
+  .loan-prediction-box {
+    max-width: 500px;
+    margin: 0 auto 2rem auto;
+    padding: 2rem;
+
+    transition: all 0.3s ease;
+  }
+  
+  /* Approved result */
+
+  
+  /* Prediction result container */
+  .loan-prediction-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Approved text */
+  .loan-text-approved {
+    color: #4caf50;
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-top: 1rem;
+  }
+  
+  /* Rejected text */
+  .loan-text-rejected {
+    color: #f44336;
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-top: 1rem;
+  }
+  
+  /* Error text */
+  .loan-text-error {
+    color: #ff5722;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  /* Buttons container */
+  .loan-button-group {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+  
+  /* Shared button styles */
+  .loan-button-update,
+  .loan-button-home,
+  .loan-csv-button {
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-weight: 600;
+  }
+  
+  /* Update Button */
+  .loan-button-update {
+    background-color: #007bff;
+    color: #fff;
+  }
+  .loan-button-update:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Home Button */
+  .loan-button-home {
+    background-color: #6c757d;
+    color: #fff;
+  }
+  .loan-button-home:hover {
+    background-color: #5a6268;
+  }
+  
+  /* CSV Accuracy Button */
+  .loan-csv-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #673ab7;
+    color: white;
+    font-weight: 600;
+  }
+  .loan-csv-button:hover {
+    background-color: #512da8;
+  }
+  
