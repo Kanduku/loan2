@@ -83,14 +83,7 @@ const CsvResultPage = () => {
         </table>
       </div>
 
-      <div className="metric">
-        <strong>Feature Importance:</strong>
-        <ul className="feature-list">
-          {csvData.feature_importance.map((val, idx) => (
-            <li key={idx}>Feature {idx + 1}: {val.toFixed(4)}</li>
-          ))}
-        </ul>
-      </div>
+    \
 
       <div className="metric">
         <strong>Sample Predictions:</strong>
