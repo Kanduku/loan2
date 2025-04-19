@@ -58,6 +58,11 @@ const CIBIL_Score = ({ formData, onChange, onNext, onPrev }) => {
           type="number"
           value={formData.cibil_score}
           onChange={(e) => onChange("cibil_score", e.target.value)}
+          onKeyDown={(e) => {
+            if(e.key === "Enter" && isValid){
+              onNext();
+            }
+          }}
           className="input-field"
           placeholder="Enter CIBIL score (300 - 900)"
           min="300"

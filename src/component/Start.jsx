@@ -10,21 +10,23 @@ const Start = ({ onStart, setCsvData }) => {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            no_of_dependents: 5,
+            no_of_dependents: 3,
             education: "Graduate",
-            self_employed: "No",
+            self_employed: "Yes",
             income_annum: 500000,
             loan_amount: 200000,
             loan_term: 12,
             cibil_score: 8,
-            residential_assets_value: 100,
-            commercial_assets_value: 300000,
-            luxury_assets_value: 150000,
-            bank_asset_value: 200000,
+            residential_assets_value: 0,
+            commercial_assets_value: 0,
+            luxury_assets_value: 0,
+            bank_asset_value: 0,
           }),
         });
 
-        const res = await fetch("https://loan-approval-h5dw.onrender.com/api/csv-data/");
+        const res = await fetch(
+          "https://loan-approval-h5dw.onrender.com/api/csv-data/"
+        );
         const data = await res.json();
         setCsvData(data);
       } catch (err) {
@@ -44,8 +46,8 @@ const Start = ({ onStart, setCsvData }) => {
         <div className="sparkle sparkle1"></div>
         <div className="sparkle sparkle2"></div>
         <div class="note note1"></div>
-<div class="note note2"></div>
-<div class="note note3"></div>
+        <div class="note note2"></div>
+        <div class="note note3"></div>
       </div>
 
       <div className="content">

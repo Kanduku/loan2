@@ -42,7 +42,7 @@ const Commercial_Assets = ({ formData, onChange, onNext, onPrev }) => {
         <input
           type="number"
           value={
-            formData.commercial_assets_value === "" ? "" : formData.commercial_assets_value || 0
+            formData.commercial_assets_value === "" ? 0 : formData.commercial_assets_value || 0
           }
           onChange={handleChange}
           onFocus={handleFocus}

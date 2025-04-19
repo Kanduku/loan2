@@ -43,13 +43,14 @@ const App = () => {
     loan_amount: "",
     loan_term: "",
     cibil_score: "",
-    residential_assets_value: "",
-    commercial_assets_value: "",
-    luxury_assets_value: "",
-    bank_asset_value: "",
+    residential_assets_value: 0,
+    commercial_assets_value: 0,
+    luxury_assets_value: 0,
+    bank_asset_value: 0,
   });
 
   const handleChange = (field, value) => {
+    console.log(`Field changed: ${field}, New value: ${value}`);
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
@@ -67,38 +68,38 @@ const App = () => {
     <Router>
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 to-indigo-200">
         <div className="w-full max-w-md p-4 bg-white rounded-xl shadow-lg">
-        <Routes>
-  <Route
-    path="/"
-    element={
-      !hasStarted ? (
-        <Start
-          onStart={() => {
-            setHasStarted(true);
-            setCurrentSlide(0);
-          }}
-          setCsvData={setCsvData}
-        />
-      ) : (
-        <CurrentSlideComponent
-          formData={formData}
-          onChange={handleChange}
-          onNext={handleNext}
-          onPrev={handlePrev}
-          csvData={csvData}
-        />
-      )
-    }
-  />
-  <Route
-    path="/result"
-    element={<ResultPage formData={formData} csvData={csvData} />}
-  />
-  <Route
-    path="/csv-result"
-    element={<CsvResultPage csvData={csvData} />}
-  />
-</Routes>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                !hasStarted ? (
+                  <Start
+                    onStart={() => {
+                      setHasStarted(true);
+                      setCurrentSlide(0);
+                    }}
+                    setCsvData={setCsvData}
+                  />
+                ) : (
+                  <CurrentSlideComponent
+                    formData={formData}
+                    onChange={handleChange}
+                    onNext={handleNext}
+                    onPrev={handlePrev}
+                    csvData={csvData}
+                  />
+                )
+              }
+            />
+            <Route
+              path="/result"
+              element={<ResultPage formData={formData} csvData={csvData} />}
+            />
+            <Route
+              path="/csv-result"
+              element={<CsvResultPage csvData={csvData} />}
+            />
+          </Routes>
         </div>
       </div>
     </Router>

@@ -53,6 +53,11 @@ const Loan_Amount = ({ formData, onChange, onNext, onPrev }) => {
             type="number"
             value={loanAmount}
             onChange={handleLoanAmountChange}
+            onKeyDown={(e) => {
+              if(e.key === "Enter" && isValid){
+                onNext();
+              }
+            }}
             className="input-field"
             placeholder="Enter loan amount"
             min="5000"

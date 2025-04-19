@@ -38,7 +38,7 @@ const Annual_Income = ({ formData, onChange, onNext, onPrev }) => {
             src="https://lottie.host/5d5b9435-f489-42f7-977c-440265beb236/KxNxyiG97L.lottie"
             loop
             autoplay
-            style={{ width: 400, height: 400 }}
+            style={{ width: 380, height: 350 }}
           />
         </div>
 
@@ -53,6 +53,11 @@ const Annual_Income = ({ formData, onChange, onNext, onPrev }) => {
             type="number"
             value={income}
             onChange={handleIncomeChange}
+            onKeyDown={(e) => {
+              if(e.key === "Enter" && isValid){
+                onNext();
+              }
+            }}
             className="input-field"
             placeholder="Enter your annual income"
             min="15000"
