@@ -42,7 +42,7 @@ const Luxury_Assets = ({ formData, onChange, onNext, onPrev }) => {
         <input
           type="number"
           value={
-            formData.luxury_assets_value === "" ? "" : formData.luxury_assets_value || 0
+            formData.luxury_assets_value === "" ? 0 : formData.luxury_assets_value || 0
           }
           onChange={handleChange}
           onFocus={handleFocus}

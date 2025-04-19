@@ -42,13 +42,13 @@ const Bank_Asset = ({ formData, onChange, onNext, onPrev }) => {
         <input
           type="number"
           value={
-            formData.bank_asset_value === "" ? "" : formData.bank_asset_value || 0
+            formData.bank_asset_value === "" ? 0 : formData.bank_asset_value || 0
           }
           onChange={handleChange}
           onFocus={handleFocus}
           onBlur={handleBlur}
           className="input-field"
-          placeholder="Enter Bank Asset Value "
+          placeholder="Enter Bank Asszzet Value "
           min="0"
         />
 

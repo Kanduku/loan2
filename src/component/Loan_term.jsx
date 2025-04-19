@@ -76,6 +76,7 @@ const Loan_term = ({ formData, onChange, onNext, onPrev }) => {
           type="number"
           value={formData.loan_term}
           onChange={(e) => onChange("loan_term", e.target.value)}
+          
           className="input-field"
           placeholder="Enter loan term in years"
         />

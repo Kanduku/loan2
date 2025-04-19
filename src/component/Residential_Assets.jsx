@@ -33,11 +33,10 @@ const Residential_Assets = ({ formData, onChange, onNext, onPrev }) => {
         {/* Input Field */}
         <input
           type="number"
-          value={formData.residential_assets_value || ""}
+          value={formData.residential_assets_value || 0}
           onChange={handleChange}
           className="input-field"
           placeholder="Enter Residential Assets Value"
-          min="0"
         />
 
         {/* Navigation Buttons */}
