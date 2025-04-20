@@ -10,6 +10,11 @@ const Residential_Assets = ({ formData, onChange, onNext, onPrev }) => {
       onChange("residential_assets_value", value); // Otherwise, just update the value
     }
   };
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      onNext();
+    }
+  };
 
   return (
     <div className="slide1-wrapper animated-gradient">
@@ -35,6 +40,7 @@ const Residential_Assets = ({ formData, onChange, onNext, onPrev }) => {
           type="number"
           value={formData.residential_assets_value || 0}
           onChange={handleChange}
+          onKeyPress={handleKeyPress} // Add the onKeyPress handler
           className="input-field"
           placeholder="Enter Residential Assets Value"
         />

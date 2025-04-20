@@ -40,6 +40,12 @@ const Loan_term = ({ formData, onChange, onNext, onPrev }) => {
     }
   }, [loanTerm, minTerm, maxTerm]);
 
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter' && !(!!guidanceMessage && loanTerm > maxTerm)) {
+      onNext();
+    }
+  };
+
   return (
     <div className="slide1-wrapper animated-gradient">
       <div className="content-wrapper">
@@ -48,12 +54,12 @@ const Loan_term = ({ formData, onChange, onNext, onPrev }) => {
         <p className="info-text">Enter the loan term (in years) you'd prefer to repay the loan:</p>
 
         {/* Lottie Animation */}
-        <div className="lottie-container">
+        <div className="lottie-container" style={{ width: 300, height: 300 }}>
           <DotLottieReact
             src="https://lottie.host/f825d80a-fff8-4c4b-825c-0e51351c5b6a/4KmW3OHDsn.lottie"
             loop
             autoplay
-            style={{ width: 400, height: 400 }}
+            style={{ width: 400, height: 350 }}
           />
         </div>
 
@@ -76,7 +82,7 @@ const Loan_term = ({ formData, onChange, onNext, onPrev }) => {
           type="number"
           value={formData.loan_term}
           onChange={(e) => onChange("loan_term", e.target.value)}
-          
+          onKeyPress={handleKeyPress} // Add the onKeyPress handler
           className="input-field"
           placeholder="Enter loan term in years"
         />

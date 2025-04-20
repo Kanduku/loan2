@@ -18,6 +18,12 @@ const Bank_Asset = ({ formData, onChange, onNext, onPrev }) => {
     const value = e.target.value;
     onChange("bank_asset_value", value === "" ? "" : Number(value));
   };
+  
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      onNext();
+    }
+  };
 
   return (
     <div className="slide1-wrapper animated-gradient bubbles">
@@ -47,6 +53,7 @@ const Bank_Asset = ({ formData, onChange, onNext, onPrev }) => {
           onChange={handleChange}
           onFocus={handleFocus}
           onBlur={handleBlur}
+          onKeyPress={handleKeyPress} // Add the onKeyPress handler
           className="input-field"
           placeholder="Enter Bank Asszzet Value "
           min="0"

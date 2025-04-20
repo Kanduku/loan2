@@ -35,15 +35,15 @@ const CsvResultPage = () => {
       <h2 className="csv-result-title"> Model Evaluation Metrics</h2>
 
       <div className="metric">
-        <strong>Accuracy:</strong> {(csvData.accuracy * 100).toFixed(2)}%
+        <strong>Accuracy : </strong> {(csvData.accuracy * 100).toFixed(2)}%
       </div>
 
       <div className="metric">
-        <strong>AUC-ROC:</strong> {csvData.auc_roc?.toFixed(4)}
+        <strong>AUC-ROC : </strong> {csvData.auc_roc?.toFixed(4)}
       </div>
 
       <div className="metric">
-        <strong>Confusion Matrix:</strong>
+        <strong>Confusion Matrix : </strong>
         <table className="confusion-matrix">
           <tbody>
             {csvData.confusion_matrix.map((row, idx) => (
@@ -58,7 +58,7 @@ const CsvResultPage = () => {
       </div>
 
       <div className="metric">
-        <strong>Classification Report:</strong>
+        <strong>Classification Report : </strong>
         <table className="classification-table">
           <thead>
             <tr>
@@ -83,10 +83,8 @@ const CsvResultPage = () => {
         </table>
       </div>
 
-    \
-
       <div className="metric">
-        <strong>Sample Predictions:</strong>
+        <strong>Sample Predictions : </strong>
         <ul className="sample-predictions">
           {csvData.sample_predictions.map((pred, idx) => (
             <li key={idx}>→ {pred.trim()}</li>
@@ -96,7 +94,7 @@ const CsvResultPage = () => {
 
       <div className="back-btn-container">
         <button onClick={() => navigate(-1)} className="back-btn">
-          ← Back
+        Back
         </button>
       </div>
     </div>
