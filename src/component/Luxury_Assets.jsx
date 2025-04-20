@@ -19,6 +19,12 @@ const Luxury_Assets = ({ formData, onChange, onNext, onPrev }) => {
     onChange("luxury_assets_value", value === "" ? "" : Number(value));
   };
 
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      onNext();
+    }
+  };
+
   return (
     <div className="slide1-wrapper animated-gradient">
       <div className="content-wrapper">
@@ -47,6 +53,7 @@ const Luxury_Assets = ({ formData, onChange, onNext, onPrev }) => {
           onChange={handleChange}
           onFocus={handleFocus}
           onBlur={handleBlur}
+          onKeyPress={handleKeyPress} // Add the onKeyPress handler
           className="input-field"
           placeholder="Enter Luxury Assets Value"
           min="0"

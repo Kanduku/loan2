@@ -202,40 +202,21 @@ const ResultPage = ({ formData }) => {
           <div className="loan-graph-section">
             <h3>Dataset Insights</h3>
             <div className="loan-charts">
-              <div
-                className="loan-chart-box"
-                style={{ width: "100%", height: "400px", marginBottom: "20px" }}
-              >
+              <div className="loan-chart-box bar-chart">
                 <h4>Average Income & Loan Amount</h4>
                 <Bar data={graphData.bar} options={chartOptions} />
               </div>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                  marginBottom: "20px",
-                }}
-              >
-                <div
-                  className="loan-chart-box"
-                  style={{ width: "48%", height: "400px", marginTop: "20px" }}
-                >
+              <div className="pie-charts-container">
+                <div className="loan-chart-box pie-chart">
                   <h4>Education Distribution (Approved Loans)</h4>
                   <Pie data={graphData.pieApproved} options={chartOptions} />
                 </div>
-                <div
-                  className="loan-chart-box"
-                  style={{ width: "48%", height: "400px", marginTop: "20px" }}
-                >
+                <div className="loan-chart-box pie-chart">
                   <h4>Education Distribution (Rejected Loans)</h4>
                   <Pie data={graphData.pieRejected} options={chartOptions} />
                 </div>
               </div>
-              <div
-                className="loan-chart-box"
-                style={{ width: "100%", height: "400px", marginTop: "20px" }}
-              >
+              <div className="loan-chart-box line-chart">
                 <h4>CIBIL Score vs. Loan Amount (Example)</h4>
                 <Line data={graphData.line} options={chartOptions} />
               </div>

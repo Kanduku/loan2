@@ -1,160 +1,246 @@
 /* General Styling */
 .csv-result-box {
+  padding: 20px; /* Reduced padding for mobile */
+  background-color: #fff;
+  border-radius: 8px; /* Reduced border radius for mobile */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Slightly reduced shadow */
+  max-width: 95%; /* Adjust max width for better mobile fit */
+  margin: 20px auto; /* Reduced margin */
+  transition: all 0.3s ease;
+}
+
+.csv-result-title {
+  font-size: 2rem; /* Reduced font size for mobile */
+  font-weight: 700;
+  color: #4CAF50;
+  margin-bottom: 20px; /* Reduced margin */
+  text-align: center;
+  background: linear-gradient(45deg, #4CAF50, #81C784);
+  background-clip: text;
+  color: transparent;
+}
+
+.metric {
+  margin-bottom: 20px; /* Reduced margin */
+  padding: 12px; /* Reduced padding */
+  border-radius: 6px; /* Reduced border radius */
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); /* Reduced shadow */
+}
+
+.metric strong {
+  font-size: 1.2rem; /* Reduced font size */
+  color: #333;
+}
+
+.metric .confusion-matrix,
+.metric .classification-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px; /* Reduced margin */
+}
+
+.metric .confusion-matrix td,
+.metric .classification-table td,
+.metric .classification-table th {
+  padding: 10px; /* Reduced padding */
+  border: 1px solid #ddd;
+  text-align: center;
+  font-size: 0.9rem; /* Reduced font size */
+}
+
+.metric .classification-table th {
+  background-color: #e0f7fa;
+  color: #00796b;
+}
+
+.feature-list {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 8px; /* Reduced margin */
+}
+
+.feature-list li {
+  padding: 6px 0; /* Reduced padding */
+  font-size: 1rem; /* Reduced font size */
+  color: #333;
+  margin-left: 15px; /* Reduced margin */
+}
+
+.sample-predictions {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 8px; /* Reduced margin */
+}
+
+.sample-predictions li {
+  padding: 6px 0; /* Reduced padding */
+  font-style: italic;
+  font-size: 0.9rem; /* Reduced font size */
+  color: #555;
+}
+
+.back-btn-container {
+  text-align: center;
+  margin-top: 25px; /* Reduced margin */
+}
+
+.back-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px; /* Reduced padding */
+  border-radius: 25px; /* Slightly reduced border radius */
+  font-size: 1rem; /* Reduced font size */
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+  background-color: #0056b3;
+}
+
+.loading-center {
+  text-align: center;
+  font-size: 1.2rem; /* Reduced font size */
+  color: #888;
+  margin-top: 30px; /* Reduced margin */
+  font-weight: 600;
+}
+
+.chart-container {
+  display: flex;
+  flex-direction: column; /* Stack charts for mobile */
+  gap: 20px;
+  margin-top: 20px; /* Reduced margin */
+}
+
+.chart-box {
+  width: 100%; /* Full width for mobile */
+  height: 200px; /* Reduced height for mobile */
+  background-color: #f0f0f0;
+  border-radius: 8px; /* Reduced border radius */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Reduced shadow */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.chart-box .chart-title {
+  position: absolute;
+  top: 8px; /* Reduced top position */
+  font-weight: bold;
+  font-size: 1rem; /* Reduced font size */
+  color: #4CAF50;
+}
+
+.fab {
+  position: fixed;
+  bottom: 20px; /* Reduced bottom position */
+  right: 20px; /* Reduced right position */
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 50%;
+  width: 50px; /* Reduced width */
+  height: 50px; /* Reduced height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem; /* Reduced font size */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Reduced shadow */
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.fab:hover {
+  transform: scale(1.05); /* Reduced hover scale */
+  background-color: #388e3c;
+}
+
+/* Media query for larger screens (tablets and desktops) */
+@media (min-width: 768px) {
+  .csv-result-box {
     padding: 30px;
-    background-color: #fff;
     border-radius: 12px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     max-width: 1000px;
     margin: 40px auto;
-    transition: all 0.3s ease;
   }
-  
+
   .csv-result-title {
     font-size: 2.5rem;
-    font-weight: 700;
-    color: #4CAF50;
     margin-bottom: 25px;
-    text-align: center;
-    background: linear-gradient(45deg, #4CAF50, #81C784);
-    background-clip: text; /* Standard property */
-    color: transparent; /* Make text transparent to show the gradient */
   }
-  
-  
+
   .metric {
     margin-bottom: 25px;
     padding: 15px;
     border-radius: 8px;
-    background-color: #f9f9f9;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   }
-  
+
   .metric strong {
     font-size: 1.4rem;
-    color: #333;
   }
-  
-  .metric .confusion-matrix,
-  .metric .classification-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
-  }
-  
+
   .metric .confusion-matrix td,
   .metric .classification-table td,
   .metric .classification-table th {
     padding: 15px;
-    border: 1px solid #ddd;
-    text-align: center;
     font-size: 1.1rem;
   }
-  
-  .metric .classification-table th {
-    background-color: #e0f7fa;
-    color: #00796b;
-  }
-  
-  .feature-list {
-    list-style-type: none;
-    padding: 0;
-    margin-top: 10px;
-  }
-  
+
   .feature-list li {
     padding: 8px 0;
     font-size: 1.2rem;
-    color: #333;
     margin-left: 20px;
   }
-  
-  .sample-predictions {
-    list-style-type: none;
-    padding: 0;
-    margin-top: 10px;
-  }
-  
+
   .sample-predictions li {
     padding: 8px 0;
-    font-style: italic;
     font-size: 1.1rem;
-    color: #555;
   }
-  
+
   .back-btn-container {
-    text-align: center;
     margin-top: 35px;
   }
-  
+
   .back-btn {
-    background-color: #007bff;
-    color: white;
     padding: 12px 25px;
     border-radius: 30px;
     font-size: 1.2rem;
-    cursor: pointer;
-    border: none;
-    transition: background-color 0.3s ease;
   }
-  
-  .back-btn:hover {
-    background-color: #0056b3;
-  }
-  
+
   .loading-center {
-    text-align: center;
     font-size: 1.4rem;
-    color: #888;
     margin-top: 50px;
-    font-weight: 600;
   }
-  
+
   .chart-container {
-    display: flex;
+    flex-direction: row; /* Display charts in a row for larger screens */
     justify-content: space-between;
     margin-top: 30px;
   }
-  
+
   .chart-box {
     width: 48%;
     height: 250px;
-    background-color: #f0f0f0;
     border-radius: 12px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
   }
-  
+
   .chart-box .chart-title {
-    position: absolute;
-    top: 10px;
-    font-weight: bold;
     font-size: 1.2rem;
-    color: #4CAF50;
+    top: 10px;
   }
-  
+
   .fab {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: #4CAF50;
-    color: white;
-    border-radius: 50%;
     width: 70px;
     height: 70px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: 2rem;
+    bottom: 30px;
+    right: 30px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    transition: transform 0.3s ease, background-color 0.3s ease;
   }
-  
-  .fab:hover {
-    transform: scale(1.1);
-    background-color: #388e3c;
-  }
-  
+}

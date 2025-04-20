@@ -1,120 +1,262 @@
 /* Container for the entire result page */
-.loan-result-container {
-    padding: 2rem;
-    text-align: center;
-    background-color: #f9f9f9;
-    min-height: 100vh;
-    position: relative;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
+.loan-result-page {
+  padding: 20px; /* Reduced padding for better mobile view */
+  text-align: center;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+  position: relative;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Title */
+.loan-result-title {
+  font-size: 1.8rem; /* Reduced font size for mobile */
+  font-weight: 700;
+  color: #222;
+  text-align: center;
+  margin-bottom: 1.5rem; /* Reduced margin */
+}
+
+/* Loader animation wrapper */
+.loan-loader-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem; /* Reduced margin */
+}
+
+/* Prediction box (approved/rejected/error) */
+.loan-prediction-box {
+  max-width: 90%; /* Adjusted max width for mobile */
+  margin: 0 auto 1.5rem auto; /* Reduced margin */
+  padding: 1.5rem; /* Reduced padding */
+  transition: all 0.3s ease;
+}
+
+/* Prediction result container */
+.loan-prediction-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Approved text */
+.loan-text-approved {
+  color: #4caf50;
+  font-size: 1.4rem; /* Reduced font size */
+  font-weight: bold;
+  margin-top: 0.8rem; /* Reduced margin */
+}
+
+/* Rejected text */
+.loan-text-rejected {
+  color: #f44336;
+  font-size: 1.4rem; /* Reduced font size */
+  font-weight: bold;
+  margin-top: 0.8rem; /* Reduced margin */
+}
+
+/* Error text */
+.loan-text-error {
+  color: #ff5722;
+  font-size: 1rem; /* Reduced font size */
+  font-weight: bold;
+}
+
+/* CSV Accuracy Button */
+.loan-csv-button {
+  position: fixed; /* Changed to fixed for better mobile experience */
+  top: 10px; /* Adjusted top position */
+  right: 10px; /* Adjusted right position */
+  background-color: #673ab7;
+  color: white;
+  font-weight: 600;
+  padding: 0.5rem 1rem; /* Reduced padding */
+  font-size: 0.9rem; /* Reduced font size */
+  border: none;
+  border-radius: 8px; /* Reduced border radius */
+  cursor: pointer;
+  z-index: 10; /* Ensure it's above other content */
+}
+.loan-csv-button:hover {
+  background-color: #512da8;
+}
+
+/* Graph Section */
+.loan-graph-section {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.loan-graph-section h3 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: #333;
+  text-align: left;
+}
+
+.loan-charts {
+  display: flex;
+  flex-direction: column; /* Stack charts on smaller screens */
+  gap: 20px;
+}
+
+.loan-chart-box {
+  background-color: #f7f7f7;
+  padding: 15px;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
   
-  /* Title */
+}
+
+.loan-chart-box h4 {
+  font-size: 1.1rem;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #555;
+  text-align: center;
+}
+
+.bar-chart,
+.line-chart {
+  width: 100%; /* Full width for single column layout */
+  height: 300px !important; /* Important for overriding default chartjs behavior */
+}
+
+.pie-charts-container {
+  display: flex;
+  flex-direction: column; /* Stack pie charts on smaller screens */
+  gap: 20px;
+  width: 100%;
+}
+
+.pie-chart {
+  width: 100%; /* Full width for single column layout */
+  height: 270px !important; /* Important for overriding default chartjs behavior */
+}
+
+@media screen and (max-width: 768px) {
+  .loan-chart-box {
+    background-color: #f7f7f7;
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+    height: 400px !important;
+    padding-bottom: 48px;
+  }
+  .pie-chart {
+    width: 100%; /* Full width for single column layout */
+    height: 270px !important; /* Important for overriding default chartjs behavior */
+  }
+
+}
+
+/* Media query for larger screens (tablets and desktops) */
+@media (min-width: 768px) {
+  .loan-result-page {
+    padding: 30px;
+  }
+
   .loan-result-title {
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: #222;
+    font-size: 2rem;
     margin-bottom: 2rem;
   }
-  
-  /* Loader animation wrapper */
-  .loan-loader-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
-  }
-  
-  /* Prediction box (approved/rejected/error) */
+
   .loan-prediction-box {
-    max-width: 500px;
-    margin: 0 auto 2rem auto;
+    max-width: 600px;
     padding: 2rem;
+    margin-bottom: 2rem;
+  }
 
-    transition: all 0.3s ease;
-  }
-  
-  /* Approved result */
-
-  
-  /* Prediction result container */
-  .loan-prediction-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  /* Approved text */
-  .loan-text-approved {
-    color: #4caf50;
-    font-size: 1.6rem;
-    font-weight: bold;
-    margin-top: 1rem;
-  }
-  
-  /* Rejected text */
+  .loan-text-approved,
   .loan-text-rejected {
-    color: #f44336;
     font-size: 1.6rem;
-    font-weight: bold;
     margin-top: 1rem;
   }
-  
-  /* Error text */
-  .loan-text-error {
-    color: #ff5722;
-    font-size: 1.2rem;
-    font-weight: bold;
+
+  .loan-graph-section {
+    margin-top: 30px;
+    padding: 20px;
   }
-  
-  /* Buttons container */
-  .loan-button-group {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
+
+  .loan-graph-section h3 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
+
+  .loan-charts {
+    flex-direction: row; /* Display charts in a row on larger screens */
     flex-wrap: wrap;
-    margin-top: 2rem;
+    justify-content: space-between;
   }
-  
-  /* Shared button styles */
-  .loan-button-update,
-  .loan-button-home,
-  .loan-csv-button {
-    padding: 0.7rem 1.5rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    font-weight: 600;
+
+  .loan-chart-box {
+    width: calc(50% - 10px); /* Adjust width for two columns */
+    height: 400px !important;
+    margin-bottom: 20px;
   }
-  
-  /* Update Button */
-  .loan-button-update {
-    background-color: #007bff;
-    color: #fff;
+
+  .bar-chart,
+  .line-chart {
+    width: 100%;
   }
-  .loan-button-update:hover {
-    background-color: #0056b3;
+
+  .pie-charts-container {
+    flex-direction: row; /* Display pie charts in a row */
+    justify-content: space-between;
   }
-  
-  /* Home Button */
-  .loan-button-home {
-    background-color: #6c757d;
-    color: #fff;
+
+  .pie-chart {
+    width: calc(50% - 10px);
+    height: 300px !important;
   }
-  .loan-button-home:hover {
-    background-color: #5a6268;
+}
+
+/* Media query for even larger screens (desktops) */
+@media (min-width: 1200px) {
+  .loan-result-title {
+    font-size: 2.2rem;
   }
-  
-  /* CSV Accuracy Button */
-  .loan-csv-button {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: #673ab7;
-    color: white;
-    font-weight: 600;
+
+  .loan-graph-section h3 {
+    font-size: 1.8rem;
   }
-  .loan-csv-button:hover {
-    background-color: #512da8;
+
+  .loan-chart-box {
+    height: 400px !important;
   }
-  
+}
+
+/* ... other mobile styles ... */
+
+.loan-result-page {
+  padding-bottom: 60px; /* Add some padding at the bottom to accommodate the fixed button */
+  position: relative; /* Needed for absolute positioning of the button within this container */
+}
+
+.loan-csv-button {
+  position: fixed;
+  bottom: 20px; /* Position at the bottom */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust for centering */
+  right: auto; /* Reset right if it was set */
+  top: auto; /* Reset top if it was set */
+  background-color: #673ab7;
+  color: white;
+  font-weight: 600;
+  padding: 0.7rem 1.5rem; /* Adjust padding for better touch target */
+  font-size: 1rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  z-index: 10;
+  outline: none;
+}
+
+.loan-csv-button:hover {
+  background-color: #512da8;
+}
+
+/* ... other mobile styles ... */
